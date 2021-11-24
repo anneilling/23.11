@@ -38,3 +38,38 @@ def koik_kasutajad(users,passwords):
         print(user,end="-")
         print(psword[i])
         i+=1
+
+def autoris(users,passwords):
+    log=input("Login: ")
+    if log not in users:
+        print("Tunnus on mitte registeeritud")
+        else:
+            pas=input("Parool: ")
+            if pas not in passwords:
+                print("Vale parool")
+                else:
+                    if users.index(log)==passwords.index(pas):
+                        print("Tere tulemast")
+def register(users,passwords):
+    while 1:
+        log=input("Kasutajatunnus:")
+        if log not in users:
+            print("Tunnus soobib")
+            break
+        else:
+            print("See nimi juba on olemas listis")
+            v=input("Arvuti-A või ise-I loob parool")
+            if v.upper()=="A":
+                pas=passautomat()
+                print(f'See on sinu parool:{pas}')
+            elif v.upper()=="I":
+                    while 1:
+                        pas=input("Sisesta oma parool")
+                        tulemus=paskontroll(pas)
+                        if tulemus==True:
+                            users.append(log)
+                            passwords.append(pas)
+                            break
+                        return users,psword
+
+

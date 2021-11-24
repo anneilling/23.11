@@ -27,4 +27,16 @@ while True:
                     users.append(log)
                     psword.append(pas)
                     break
+        elif v==2:
+           print("Avtoriseerimine")
+           log(users,psword)
+        elif v==3:
+            print("Välja")
+            break #valmis
+        else:
+            print("On vaja valida 1,2 või 3")#kõik on olemas
+
+
+
+
         
