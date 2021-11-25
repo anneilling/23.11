@@ -1,23 +1,27 @@
 ﻿#funktsioonide loomine
 from random import *
-def passcontrol(psword):
+def loe_failist_listisse(file:str)->list: #loeme tekst failist ja salvestame listisse
+    f=open(file,"r")
+    list_=[]
+    for stroka in f:
+        list_.append(stroka.strip())
+    f.close()
+    return list_
+
+def passcontrol(psword: str)->bool:
     ls=list(psword)
-    for i in psword:
-        if i.isdigit()== True:
-            digit="True"
-        if i.isalpha()== True:
-            alpha="True"
-        if i.isupper()==True:
-            upper="True"
-        if i.islower()==True:
-            lower="True"
-        if i in list('.','-','+','/','%'):
-            symbol="True"
-    if digit=="True" and upper=="True" and alpha=="True" and lower=="True" and symbol=="True":
-        ans=True
+    for e in ls:
+        if e.isdigit(): d=True
+        if e.isalpha(): a=True
+        if e.isupper(): u=True
+        if e.islower(): l=True
+        if e in list(".,:;!_*-+()/#¤%&"): s=True
+    if d==True and a==True and u==True and l==True and s==True:
+           t=True
     else:
-        ans=False
-    return ans
+           t=False
+    return t
+
 def passautomat()-> str:
  #parool genereeritakse masinaga
     str0=".,:;!_*-+()/#¤%&"
@@ -62,7 +66,7 @@ def register(users,psword):
             v=input("Arvuti-A või ise-I loob parool")
             if v.upper()=="A":
                 pas=passautomat()
-                print(f'See on sinu parool:{pas}')
+                print(f"See on sinu parool:{pas}")
             elif v.upper()=="I":
                     while 1:
                         pas=input("Sisesta oma parool")

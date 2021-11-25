@@ -26,6 +26,10 @@
     </Compile>
     <Compile Include="_23.11.py" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="passwords.txt" />
+    <Content Include="users.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
        Visual Studio and specify your pre- and post-build commands in
