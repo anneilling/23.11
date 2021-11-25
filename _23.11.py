@@ -9,32 +9,17 @@ while True:
         koik_kasutajad(users,psword)
     elif v==1:
         print("Registreerimine ")
-        while 1:
-            log=input("Login ")
-            if log not in users:
-                print("Login soobib")
-                break
-            else:
-                 print("See nimi juba on olemas listis")
-        v=input("Arvuti-A või ise-I loob parool ")
-        if v.upper()=="A":
-            pas=passautomat()
-        elif v.upper()=="I":
-            while 1:
-                pas=input("Sisesta oma parool ")
-                tulemus=passcontrol(pas)
-                if tulemus==True:
-                    users.append(log)
-                    psword.append(pas)
-                    break
-        elif v==2:
-           print("Avtoriseerimine")
-           log(users,psword)
-        elif v==3:
-            print("Välja")
-            break #valmis
-        else:
-            print("On vaja valida 1,2 või 3")#kõik on olemas
+        users,passwords=register(users,psword)
+    elif v==2:
+        print("Avtoriseerimine")
+        log(users,psword)
+    elif v==3:
+           print("Välja")
+           faili_sisu_umberkirjutamine("users.txt",users)
+           faili_sisu_umberkirjutamine("passwords.txt",passwords)
+           quit()
+    else:
+        print("On vaja valida 1,2 või 3") #kõik on olemas
 
 
 

@@ -7,7 +7,10 @@ def loe_failist_listisse(file:str)->list: #loeme tekst failist ja salvestame lis
         list_.append(stroka.strip())
     f.close()
     return list_
-
+def faili_sisu_umberkirjutamine(file:str,list_:list):
+     with open(file,"w") as f:
+         for slovo in list_:
+             f.write(slovo+"\n")
 def passcontrol(psword: str)->bool:
     ls=list(psword)
     for e in ls:
@@ -43,13 +46,13 @@ def koik_kasutajad(users,psword):
         print(psword[i])
         i+=1
 
-def autoris(users,psword):
+def log(users,psword):
     log=input("Login: ")
     if log not in users:
         print("Tunnus on mitte registeeritud")   
     else:
             pas=input("Parool: ")
-            if pas not in psword:
+            if pas not in ("passwords.txt"):
                 print("Vale parool")
             else:
                 if users.index(log)==psword.index(pas):
