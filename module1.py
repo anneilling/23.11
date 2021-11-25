@@ -26,31 +26,32 @@ def passautomat()-> str:
     str3=str2.upper() #QWERTYUIOPASDFGHJKLZXCVBNM
     str4=str0+str1+str2+str3
     ls=list(str4) #list
-    random.shuffle(ls) #segage väärtusi
+    shuffle(ls) #segage väärtusi
 #eraldame loendist 12 suvalist väärtust
     psword="".join([choice(ls) for x in range(12)])
 #parool on valmis
     return psword
 
-def koik_kasutajad(users,passwords):
+def koik_kasutajad(users,psword):
     i=0
     for user in users:
         print(user,end="-")
         print(psword[i])
         i+=1
 
-def autoris(users,passwords):
+def autoris(users,psword):
     log=input("Login: ")
     if log not in users:
-        print("Tunnus on mitte registeeritud")
-        else:
+        print("Tunnus on mitte registeeritud")   
+    else:
             pas=input("Parool: ")
-            if pas not in passwords:
+            if pas not in psword:
                 print("Vale parool")
-                else:
-                    if users.index(log)==passwords.index(pas):
+            else:
+                if users.index(log)==psword.index(pas):
                         print("Tere tulemast")
-def register(users,passwords):
+
+def register(users,psword):
     while 1:
         log=input("Kasutajatunnus:")
         if log not in users:
@@ -68,7 +69,7 @@ def register(users,passwords):
                         tulemus=paskontroll(pas)
                         if tulemus==True:
                             users.append(log)
-                            passwords.append(pas)
+                            psword.append(pas)
                             break
                         return users,psword
 
